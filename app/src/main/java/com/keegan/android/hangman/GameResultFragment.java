@@ -13,11 +13,9 @@ public class GameResultFragment extends Fragment {
     private TextView gameResultTV;
 
     @Override
-    public View onCreateView( LayoutInflater inflater,
-                              ViewGroup container, Bundle savedInstanceState ) {
+    public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ) {
         setUpFragmentGui( container );
-        return super.onCreateView( inflater, container,
-                savedInstanceState ) ;
+        return super.onCreateView( inflater, container, savedInstanceState ) ;
     }
 
     public void setUpFragmentGui( ViewGroup container ) {

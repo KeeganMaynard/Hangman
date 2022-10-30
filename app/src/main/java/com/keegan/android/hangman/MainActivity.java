@@ -14,10 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-// V5 - Using an Invisible Fragment
-//  We can also use a fragment that can perform some work in the background of the app,
-//  without any visual representation
-
 public class MainActivity extends AppCompatActivity {
 
     private Hangman game;
@@ -31,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         TextView status = ( TextView ) findViewById( R.id.status );
         status.setText( "" + game.getGuessesLeft( ) );
 
-        //FragmentManager fragmentManager = getFragmentManager( );
         FragmentManager fragmentManager = getSupportFragmentManager( );
 
         if( fragmentManager.findFragmentById( R.id.game_state ) == null ) {
@@ -71,13 +66,10 @@ public class MainActivity extends AppCompatActivity {
             status.setText( "" + game.getGuessesLeft() );
 
             // update incomplete word
-            // FragmentManager fragmentManager = getFragmentManager( );
             FragmentManager fragmentManager = getSupportFragmentManager( );
-            GameStateFragment gsFragment = ( GameStateFragment )
-                    fragmentManager.findFragmentById( R.id.game_state );
+            GameStateFragment gsFragment = ( GameStateFragment ) fragmentManager.findFragmentById( R.id.game_state );
             View gsFragmentView = gsFragment.getView( );
-            TextView gameStateTV = ( TextView )
-                    gsFragmentView.findViewById( R.id.state_of_game );
+            TextView gameStateTV = ( TextView ) gsFragmentView.findViewById( R.id.state_of_game );
             gameStateTV.setText( game.currentIncompleteWord( ) );
 
             // clear EditText
@@ -85,18 +77,15 @@ public class MainActivity extends AppCompatActivity {
 
             // check if there is only one guess left
             if( game.getGuessesLeft( ) == 1 ) {
-                BackgroundFragment background = ( BackgroundFragment )
-                        fragmentManager.findFragmentByTag( "background" );
-                GameResultFragment grFragment = ( GameResultFragment )
-                        fragmentManager.findFragmentById( R.id.game_result );
+                BackgroundFragment background = ( BackgroundFragment ) fragmentManager.findFragmentByTag( "background" );
+                GameResultFragment grFragment = ( GameResultFragment ) fragmentManager.findFragmentById( R.id.game_result );
                 // retrieve warning and display it
                 grFragment.setResult( background.warning( ) );
             }
 
             int result = game.gameOver( );
             if( result != 0 ) /* game is over */ {
-                GameResultFragment grFragment = ( GameResultFragment )
-                        fragmentManager.findFragmentById( R.id.game_result );
+                GameResultFragment grFragment = ( GameResultFragment ) fragmentManager.findFragmentById( R.id.game_result );
 
                 // update TextView in result fragment
                 if( result == 1 )

@@ -14,19 +14,15 @@ public class GameStateFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView( LayoutInflater inflater,
-                              ViewGroup container, Bundle savedInstanceState ) {
-        return inflater.inflate( R.layout.fragment_game_state,
-                container, false );
+    public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ) {
+        return inflater.inflate( R.layout.fragment_game_state, container, false );
     }
 
     public void onStart( ) {
         super.onStart( );
         View fragmentView = getView( );
-        TextView gameStateTV
-                = ( TextView ) fragmentView.findViewById( R.id.state_of_game );
+        TextView gameStateTV = ( TextView ) fragmentView.findViewById( R.id.state_of_game );
         MainActivity fragmentActivity = ( MainActivity ) getActivity( );
-        gameStateTV.setText( fragmentActivity.getGame( )
-                .currentIncompleteWord( ) );
+        gameStateTV.setText( fragmentActivity.getGame( ).currentIncompleteWord( ) );
     }
 }

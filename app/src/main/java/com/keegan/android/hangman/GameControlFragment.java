@@ -8,13 +8,10 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 public class GameControlFragment extends Fragment {
-    public GameControlFragment( ) {
-    }
+    public GameControlFragment( ) {}
 
     @Override
-    public View onCreateView( LayoutInflater inflater,
-                              ViewGroup container, Bundle savedInstanceState ) {
-        return inflater.inflate( R.layout.fragment_game_control,
-                container, false );
+    public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState ) {
+        return inflater.inflate( R.layout.fragment_game_control, container, false );
     }
 }
